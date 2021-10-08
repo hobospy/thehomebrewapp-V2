@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,6 +13,15 @@ import RecipesPage from './recipes/RecipesPage';
 import WaterProfilesPage from './waterProfiles/WaterProfilesPage';
 
 function App() {
+  // const [theme, setTheme] = useState('light');
+  const [theme] = useState('light');
+
+  // function toggleTheme() {
+  //   setTheme(theme === 'dark' ? 'light' : 'dark');
+  //   document.documentElement.setAttribute('data-theme', theme);
+  // }
+
+  document.documentElement.setAttribute('data-theme', theme);
   return (
     <div className='container-fluid'>
       <Header />

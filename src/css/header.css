@@ -1,47 +1,48 @@
-.activeStyle {
-  color: #f15b2a;
-}
+@import './themes.css';
 
 .main-menu {
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
   grid-template-rows: 75px;
-  background-image: url('../../../resources/grain.jpg');
+  background-image: url('../../resources/grain.jpg');
   background-size: 50%;
   background-position: 0px 35%;
 }
 .main-menu div {
+  align-items: center;
   display: flex;
   font-size: 35px;
   justify-content: center;
-  align-items: center;
 }
 .main-menu-brews {
   grid-column: 2;
 }
-.main-menu-brews :hover {
-  border-color: #001a33;
-  color: #001a33;
-}
 .main-menu-recipes {
   grid-column: 3;
-}
-.main-menu-recipes :hover {
-  border-color: #001a33;
-  color: #001a33;
 }
 .main-menu-water {
   grid-column: 4;
 }
-.main-menu-water :hover {
-  border-color: #001a33;
-  color: #001a33;
-}
+
 .main-menu-button {
-  background-color: rgba(211, 211, 211, 0.4);
-  border: 2.5px solid #dff1ff;
+  background-color: var(--highlightAccent);
+  border: 2.5px solid var(--highlight);
   border-radius: 3px;
-  color: #dff1ff;
+  color: var(--highlight);
   display: flex;
   padding: 3px;
+}
+
+a.main-menu-button:link {
+  text-decoration: none;
+}
+
+a.main-menu-button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.main-menu-button-active {
+  border-color: var(--primary);
+  color: var(--primary);
 }

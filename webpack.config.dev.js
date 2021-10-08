@@ -46,6 +46,10 @@ module.exports = {
         use: ['babel-loader', 'eslint-loader'],
       },
       {
+        test: /\.(less)$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
+      },
+      {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },

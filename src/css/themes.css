@@ -1,0 +1,23 @@
+/* default theme(light) */
+html {
+  --primary: #001a33;
+  --secondary1: #407a99;
+  --secondary2: #80d9ff;
+  --secondary3: #a2d2ea;
+  --neutral1: #c3cad5;
+  --neutral2: #e1e5ea;
+  --highlight: #ffffff;
+  --highlightAccent: #ffffff3f;
+}
+
+/* dark theme */
+html[data-theme='dark'] {
+  --primary: #330000;
+  --secondary1: #407a99;
+  --secondary2: #80d9ff;
+  --secondary3: #a2d2ea;
+  --neutral1: #c3cad5;
+  --neutral2: #e1e5ea;
+  --highlight: #ffffff;
+  --highlightAccent: #ffffff3f;
+}
