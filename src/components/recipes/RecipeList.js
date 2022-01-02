@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+
 import './RecipeList.css';
 
 function RecipeList({ history, onDeleteClick, recipes }) {
@@ -33,10 +35,12 @@ function RecipeList({ history, onDeleteClick, recipes }) {
                   rowSpan={2}
                 >
                   <button
-                    className='btn btn-outline-danger'
+                    // className='btn btn-outline-danger'
+                    className='danger-button'
                     onClick={(event) => onDeleteClick(event, recipe)}
                   >
-                    Delete
+                    {/* Delete*/}
+                    <DeleteOutlineIcon />
                   </button>
                 </td>
               </tr>

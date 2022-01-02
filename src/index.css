@@ -7,8 +7,20 @@ nav {
   padding: 20px 0 20px 0;
 }
 
+.danger-button {
+  background-color: transparent;
+  border-color: var(--primary);
+  border-radius: 5px;
+  color: var(--primary);
+}
+
+.danger-button:hover {
+  border-color: red;
+  color: red;
+}
+
 .table {
-  border-bottom: 1px #001a33 solid;
+  border-bottom: 1px var(--neutral2) solid;
   display: table;
   table-layout: fixed;
   width: 100%;
@@ -100,4 +112,13 @@ nav {
 .expandableTableSingleContainer > .expander {
   grid-column: 2;
   text-align: right;
+}
+
+/* https://medium.com/@harishv6665_49536/theming-with-react-js-or-any-in-minutes-with-css-variables-11d4ebecdb41 */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *:before,
+html.theme-transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
 }
