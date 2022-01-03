@@ -35,12 +35,10 @@ function RecipeList({ history, onDeleteClick, recipes }) {
                   rowSpan={2}
                 >
                   <button
-                    // className='btn btn-outline-danger'
                     className='danger-button'
                     onClick={(event) => onDeleteClick(event, recipe)}
                   >
-                    {/* Delete*/}
-                    <DeleteOutlineIcon />
+                    <DeleteOutlineIcon className='danger-button-icon' />
                   </button>
                 </td>
               </tr>
