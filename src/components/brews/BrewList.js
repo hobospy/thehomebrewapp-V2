@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+
 import './BrewList.css';
 
 function BrewList({ history, onDeleteClick, brews }) {
@@ -33,10 +35,10 @@ function BrewList({ history, onDeleteClick, brews }) {
                   rowSpan={2}
                 >
                   <button
-                    className='btn btn-outline-danger'
+                    className='danger-button'
                     onClick={(event) => onDeleteClick(event, brew)}
                   >
-                    Delete
+                    <DeleteOutlineIcon className='danger-button-icon' />
                   </button>
                 </td>
               </tr>

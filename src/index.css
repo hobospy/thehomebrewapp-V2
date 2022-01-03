@@ -9,14 +9,21 @@ nav {
 
 .danger-button {
   background-color: transparent;
-  border-color: var(--primary);
+  border-bottom-style: solid;
+  border-color: red;
   border-radius: 5px;
-  color: var(--primary);
+  border-right-style: solid;
+  color: red;
 }
 
 .danger-button:hover {
+  background-color: red !important;
   border-color: red;
-  color: red;
+  color: white;
+}
+
+.danger-button-icon:hover {
+  background-color: red !important;
 }
 
 .table {
