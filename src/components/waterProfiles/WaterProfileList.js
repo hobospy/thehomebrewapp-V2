@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+
 import './WaterProfileList.css';
 
 function WaterProfileList({ history, onDeleteClick, waterProfiles }) {
@@ -33,10 +35,10 @@ function WaterProfileList({ history, onDeleteClick, waterProfiles }) {
                   rowSpan={2}
                 >
                   <button
-                    className='btn btn-outline-danger'
+                    className='danger-button'
                     onClick={(event) => onDeleteClick(event, waterProfile)}
                   >
-                    Delete
+                    <DeleteOutlineIcon className='danger-button-icon' />
                   </button>
                 </td>
               </tr>
