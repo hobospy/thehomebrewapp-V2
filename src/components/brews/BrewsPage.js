@@ -45,24 +45,23 @@ class BrewsPage extends React.Component {
     return (
       <>
         {this.state.redirectToAddBrewPage && <Redirect to='/brew' />}
-        <h2>Brews</h2>
+        <>
+          <h2 className='header-text'>Brews</h2>
+          <button
+            className='btn btn-primary header-button'
+            onClick={() => this.setState({ redirectToAddBrewPage: true })}
+          >
+            Add Brew
+          </button>
+        </>
         {this.props.isLoading ? (
           <Spinner />
         ) : (
-          <>
-            <button
-              style={{ marginBottom: 20 }}
-              className='btn btn-primary'
-              onClick={() => this.setState({ redirectToAddBrewPage: true })}
-            >
-              Add Brew
-            </button>
-            <BrewList
-              history={this.props.history}
-              onDeleteClick={this.handleDeleteBrew}
-              brews={this.props.brews}
-            />
-          </>
+          <BrewList
+            history={this.props.history}
+            onDeleteClick={this.handleDeleteBrew}
+            brews={this.props.brews}
+          />
         )}
       </>
     );
