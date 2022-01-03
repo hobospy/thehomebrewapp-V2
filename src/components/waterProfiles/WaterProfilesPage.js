@@ -47,26 +47,25 @@ class WaterProfilesPage extends React.Component {
         {this.state.redirectToAddWaterProfilePage && (
           <Redirect to='/waterProfile' />
         )}
-        <h2>Water Profiles</h2>
+        <>
+          <h2 className='header-text'>Water Profiles</h2>
+          <button
+            className='btn btn-primary header-button'
+            onClick={() =>
+              this.setState({ redirectToAddWaterProfilePage: true })
+            }
+          >
+            Add Water Profile
+          </button>
+        </>
         {this.props.isLoading ? (
           <Spinner />
         ) : (
-          <>
-            <button
-              style={{ marginBottom: 20 }}
-              className='btn btn-primary'
-              onClick={() =>
-                this.setState({ redirectToAddWaterProfilePage: true })
-              }
-            >
-              Add Water Profile
-            </button>
-            <WaterProfileList
-              history={this.props.history}
-              onDeleteClick={this.handleDeleteWaterProfile}
-              waterProfiles={this.props.waterProfiles}
-            />
-          </>
+          <WaterProfileList
+            history={this.props.history}
+            onDeleteClick={this.handleDeleteWaterProfile}
+            waterProfiles={this.props.waterProfiles}
+          />
         )}
       </>
     );

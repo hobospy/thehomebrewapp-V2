@@ -26,6 +26,16 @@ nav {
   background-color: red !important;
 }
 
+.header-text {
+  display: inline;
+  float: left;
+}
+.header-button {
+  float: right;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
 .table {
   border-bottom: 1px var(--neutral2) solid;
   display: table;

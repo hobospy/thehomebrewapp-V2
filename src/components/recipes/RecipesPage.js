@@ -52,24 +52,23 @@ class RecipesPage extends React.Component {
     return (
       <>
         {this.state.redirectToAddRecipePage && <Redirect to='/recipe' />}
-        <h2>Recipes</h2>
+        <>
+          <h2 className='header-text'>Recipes</h2>
+          <button
+            className='btn btn-primary header-button'
+            onClick={() => this.setState({ redirectToAddRecipePage: true })}
+          >
+            Add Recipe
+          </button>
+        </>
         {this.props.isLoading ? (
           <Spinner />
         ) : (
-          <>
-            <button
-              style={{ marginBottom: 20 }}
-              className='btn btn-primary'
-              onClick={() => this.setState({ redirectToAddRecipePage: true })}
-            >
-              Add Recipe
-            </button>
-            <RecipeList
-              history={this.props.history}
-              onDeleteClick={this.handleDeleteRecipe}
-              recipes={this.props.recipes}
-            />
-          </>
+          <RecipeList
+            history={this.props.history}
+            onDeleteClick={this.handleDeleteRecipe}
+            recipes={this.props.recipes}
+          />
         )}
       </>
     );
