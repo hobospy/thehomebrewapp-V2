@@ -3,7 +3,9 @@ import { handleError, handleResponse } from './apiUtils';
 const baseUrl = process.env.API_URL + 'brews/';
 
 export function getBrews() {
-  return fetch(baseUrl).then(handleResponse).catch(handleError);
+  return fetch(baseUrl + '?IncludeAdditionalInfo=1')
+    .then(handleResponse)
+    .catch(handleError);
 }
 
 export function saveBrew(brew) {
