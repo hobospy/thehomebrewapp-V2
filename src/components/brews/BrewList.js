@@ -13,6 +13,15 @@ function BrewList({ history, onDeleteClick, brews }) {
   return (
     <div>
       {brews.map((brew) => {
+        let basicDate = new Date(Date.parse(brew.brewDate));
+        const currentLocale = 'en-GB';
+        let fullDate =
+          basicDate.toLocaleString(currentLocale, { day: '2-digit' }) +
+          '-' +
+          basicDate.toLocaleString(currentLocale, { month: 'short' }) +
+          '-' +
+          basicDate.toLocaleString(currentLocale, { year: 'numeric' });
+
         return (
           <table
             className='table'
@@ -23,16 +32,19 @@ function BrewList({ history, onDeleteClick, brews }) {
               <tr>
                 <td style={{ borderWidth: '0px' }}>{brew.name}</td>
                 <td style={{ borderWidth: '0px', width: '300px' }}>
-                  {brew.type}
+                  {brew.recipeType}
+                </td>
+                <td style={{ borderWidth: '0px', width: '50px' }}>
+                  {brew.rating}
                 </td>
                 <td
                   style={{
                     borderWidth: '0px',
-                    width: '125px',
+                    width: '75px',
                     verticalAlign: 'middle',
                     textAlign: 'right',
                   }}
-                  rowSpan={2}
+                  rowSpan={3}
                 >
                   <button
                     className='danger-button'
@@ -43,8 +55,22 @@ function BrewList({ history, onDeleteClick, brews }) {
                 </td>
               </tr>
               <tr>
-                <td style={{ borderWidth: '0px' }} colSpan={2}>
-                  {brew.description}
+                <td
+                  style={{
+                    borderWidth: '0px',
+                    fontSize: '12px',
+                    paddingBottom: '0px',
+                    paddingTop: '0px',
+                    textAlign: 'right',
+                  }}
+                  colSpan={3}
+                >
+                  {fullDate}
+                </td>
+              </tr>
+              <tr>
+                <td style={{ borderWidth: '0px' }} colSpan={3}>
+                  {brew.recipeDescription}
                 </td>
               </tr>
             </tbody>
