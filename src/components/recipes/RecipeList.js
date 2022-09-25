@@ -1,13 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 import './RecipeList.css';
 
-function RecipeList({ history, onDeleteClick, recipes }) {
+function RecipeList({ onDeleteClick, recipes }) {
+  const navigate = useNavigate();
+
   const handleRowClick = (id) => {
-    history.push('/recipe/' + id);
+    navigate('../recipes/' + id, { replace: true });
   };
 
   return (
@@ -56,7 +59,6 @@ function RecipeList({ history, onDeleteClick, recipes }) {
 }
 
 RecipeList.propTypes = {
-  history: PropTypes.object.isRequired,
   onDeleteClick: PropTypes.func.isRequired,
   recipes: PropTypes.array.isRequired,
 };

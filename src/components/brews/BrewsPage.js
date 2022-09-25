@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { bindActionCreators } from 'redux';
 
@@ -44,8 +44,9 @@ class BrewsPage extends React.Component {
   render() {
     return (
       <>
-        {this.state.redirectToAddBrewPage && <Redirect to='/brew' />}
-        <>
+        {this.state.redirectToAddBrewPage && <Navigate to='/brew' />}
+        <div>
+          {/* style={{ backgroundColor: 'blue', overflow: 'hidden' }}> */}
           <h2 className='header-text'>Brews</h2>
           <button
             className='btn btn-primary header-button'
@@ -53,12 +54,11 @@ class BrewsPage extends React.Component {
           >
             Add Brew
           </button>
-        </>
+        </div>
         {this.props.isLoading ? (
           <Spinner />
         ) : (
           <BrewList
-            history={this.props.history}
             onDeleteClick={this.handleDeleteBrew}
             brews={this.props.brews}
           />
@@ -70,7 +70,6 @@ class BrewsPage extends React.Component {
 
 BrewsPage.propTypes = {
   actions: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   brews: PropTypes.array.isRequired,
 };

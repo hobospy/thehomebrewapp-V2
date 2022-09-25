@@ -43,7 +43,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader', 'eslint-loader'],
+        use: ['babel-loader'],
       },
       {
         test: /\.(less)$/i,
@@ -56,6 +56,6 @@ module.exports = {
     ],
   },
   optimization: {
-    minimize: true,
+    minimize: false,
   },
 };

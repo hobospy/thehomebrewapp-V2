@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { bindActionCreators } from 'redux';
 
@@ -45,7 +45,7 @@ class WaterProfilesPage extends React.Component {
     return (
       <>
         {this.state.redirectToAddWaterProfilePage && (
-          <Redirect to='/waterProfile' />
+          <Navigate to='/waterProfile' />
         )}
         <>
           <h2 className='header-text'>Water Profiles</h2>

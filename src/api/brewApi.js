@@ -2,6 +2,12 @@ import { handleError, handleResponse } from './apiUtils';
 
 const baseUrl = process.env.API_URL + 'brews/';
 
+export function getBrew(brewId) {
+  return fetch(baseUrl + brewId + '?includeAdditionalInfo=true')
+    .then(handleResponse)
+    .catch(handleError);
+}
+
 export function getBrews() {
   return fetch(baseUrl + '?IncludeAdditionalInfo=1')
     .then(handleResponse)

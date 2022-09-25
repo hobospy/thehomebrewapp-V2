@@ -10,6 +10,10 @@ export function deleteBrewOptimistic(brew) {
   return { type: types.DELETE_BREW_OPTIMISTIC, brew };
 }
 
+export function loadBrewSuccess(brew) {
+  return { type: types.LOAD_BREW_SUCCESS, brew };
+}
+
 export function loadBrewsSuccess(brews) {
   return { type: types.LOAD_BREWS_SUCCESS, brews };
 }
@@ -21,6 +25,22 @@ export function updateBrewSuccess(brew) {
 // async function getStuff() {
 //   const item = await fetch("http://localhost:59607/api/recipes/", {mode: 'no-cors'});
 // }
+
+export function loadBrew(brewId) {
+  return function (dispatch) {
+    dispatch(beginApiCall());
+
+    return brewApi
+      .getBrew(brewId)
+      .then((brew) => {
+        dispatch(loadBrewSuccess(brew));
+      })
+      .catch((error) => {
+        dispatch(apiCallError(error));
+        throw error;
+      });
+  };
+}
 
 export function loadBrews() {
   return function (dispatch) {

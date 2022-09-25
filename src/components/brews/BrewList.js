@@ -1,27 +1,22 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import BrewHeader from './BrewHeader';
+import * as dateFunctions from '../common/DateFunctions';
 
 import './BrewList.css';
 
-function BrewList({ history, onDeleteClick, brews }) {
+function BrewList({ onDeleteClick, brews }) {
+  const navigate = useNavigate();
+
   const handleRowClick = (id) => {
-    history.push('/brew/' + id);
+    navigate('../brews/' + id, { replace: true });
   };
 
   return (
     <div>
       {brews.map((brew) => {
-        let basicDate = new Date(Date.parse(brew.brewDate));
-        const currentLocale = 'en-GB';
-        let fullDate =
-          basicDate.toLocaleString(currentLocale, { day: '2-digit' }) +
-          '-' +
-          basicDate.toLocaleString(currentLocale, { month: 'short' }) +
-          '-' +
-          basicDate.toLocaleString(currentLocale, { year: 'numeric' });
-
         return (
           <table
             className='table'
@@ -30,46 +25,21 @@ function BrewList({ history, onDeleteClick, brews }) {
           >
             <tbody className='tableHighlightRowLink'>
               <tr>
-                <td style={{ borderWidth: '0px' }}>{brew.name}</td>
-                <td style={{ borderWidth: '0px', width: '300px' }}>
-                  {brew.recipeType}
-                </td>
-                <td style={{ borderWidth: '0px', width: '50px' }}>
-                  {brew.rating}
-                </td>
-                <td
-                  style={{
-                    borderWidth: '0px',
-                    width: '75px',
-                    verticalAlign: 'middle',
-                    textAlign: 'right',
-                  }}
-                  rowSpan={3}
-                >
-                  <button
-                    className='danger-button'
-                    onClick={(event) => onDeleteClick(event, brew)}
-                  >
-                    <DeleteOutlineIcon className='danger-button-icon' />
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td
-                  style={{
-                    borderWidth: '0px',
-                    fontSize: '12px',
-                    paddingBottom: '0px',
-                    paddingTop: '0px',
-                    textAlign: 'right',
-                  }}
-                  colSpan={3}
-                >
-                  {fullDate}
-                </td>
-              </tr>
-              <tr>
                 <td style={{ borderWidth: '0px' }} colSpan={3}>
+                  <BrewHeader
+                    name={brew.name}
+                    recipeType={brew.recipeType}
+                    rating={brew.rating}
+                    brewDate={dateFunctions.getFullDate(brew.brewDate)}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style={{ borderWidth: '0px' }}
+                  colSpan={3}
+                  onClick={(event) => onDeleteClick(event, brew)}
+                >
                   {brew.recipeDescription}
                 </td>
               </tr>
@@ -82,7 +52,6 @@ function BrewList({ history, onDeleteClick, brews }) {
 }
 
 BrewList.propTypes = {
-  history: PropTypes.object.isRequired,
   onDeleteClick: PropTypes.func.isRequired,
   brews: PropTypes.array.isRequired,
 };

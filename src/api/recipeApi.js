@@ -2,21 +2,11 @@ import { handleError, handleResponse } from './apiUtils';
 
 const baseUrl = process.env.API_URL + 'recipes/';
 
-// async function awaitGetRecipes() {
-//   try {
-//     let response = await fetch(baseUrl);
-
-//     if (response.ok)
-//     {
-//       const jsonResponse = await response.json();
-//       console.log(jsonResponse);
-//     }
-//   }
-//   catch(ex)
-//   {
-//     console.log(ex);
-//   }
-// }
+export function getRecipe(recipeId) {
+  return fetch(baseUrl + recipeId + '?includeSteps=true')
+    .then(handleResponse)
+    .catch(handleError);
+}
 
 export function getRecipes() {
   return fetch(baseUrl).then(handleResponse).catch(handleError);

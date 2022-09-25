@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { bindActionCreators } from 'redux';
 
@@ -51,7 +51,7 @@ class RecipesPage extends React.Component {
   render() {
     return (
       <>
-        {this.state.redirectToAddRecipePage && <Redirect to='/recipe' />}
+        {this.state.redirectToAddRecipePage && <Navigate to='/recipe' />}
         <>
           <h2 className='header-text'>Recipes</h2>
           <button
@@ -65,7 +65,6 @@ class RecipesPage extends React.Component {
           <Spinner />
         ) : (
           <RecipeList
-            history={this.props.history}
             onDeleteClick={this.handleDeleteRecipe}
             recipes={this.props.recipes}
           />
@@ -77,7 +76,6 @@ class RecipesPage extends React.Component {
 
 RecipesPage.propTypes = {
   actions: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   recipes: PropTypes.array.isRequired,
   waterProfiles: PropTypes.array.isRequired,

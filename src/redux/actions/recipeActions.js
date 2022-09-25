@@ -10,6 +10,10 @@ export function deleteRecipeOptimistic(recipe) {
   return { type: types.DELETE_RECIPE_OPTIMISTIC, recipe };
 }
 
+export function loadRecipeSuccess(recipe) {
+  return { type: types.LOAD_RECIPE_SUCCESS, recipe };
+}
+
 export function loadRecipesSuccess(recipes) {
   return { type: types.LOAD_RECIPES_SUCCESS, recipes };
 }
@@ -18,9 +22,21 @@ export function updateRecipeSuccess(recipe) {
   return { type: types.UPDATE_RECIPE_SUCCESS, recipe };
 }
 
-// async function getStuff() {
-//   const item = await fetch("http://localhost:59607/api/recipes/", {mode: 'no-cors'});
-// }
+export function loadRecipe(recipeId) {
+  return function (dispatch) {
+    dispatch(beginApiCall());
+
+    return recipeApi
+      .getRecipe(recipeId)
+      .then((recipe) => {
+        dispatch(loadRecipeSuccess(recipe));
+      })
+      .catch((error) => {
+        dispatch(apiCallError(error));
+        throw error;
+      });
+  };
+}
 
 export function loadRecipes() {
   return function (dispatch) {

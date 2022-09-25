@@ -13,8 +13,9 @@ const Header = () => {
       <div className='main-menu-brews'>
         <NavLink
           to={`/brews`}
-          className='main-menu-button'
-          activeClassName='main-menu-button-active'
+          className={({ isActive }) =>
+            'main-menu-button' + (isActive ? ' main-menu-button-active' : '')
+          }
         >
           <LocalDrinkOutlinedIcon fontSize='inherit' />
         </NavLink>
@@ -22,8 +23,9 @@ const Header = () => {
       <div className='main-menu-recipes'>
         <NavLink
           to={`/recipes`}
-          className='main-menu-button'
-          activeClassName='main-menu-button-active'
+          className={({ isActive }) =>
+            'main-menu-button' + (isActive ? ' main-menu-button-active' : '')
+          }
         >
           <MenuBookOutlined fontSize='inherit' />
         </NavLink>
@@ -31,8 +33,9 @@ const Header = () => {
       <div>
         <NavLink
           to={`/waterprofiles`}
-          className='main-menu-button'
-          activeClassName='main-menu-button-active'
+          className={({ isActive }) =>
+            'main-menu-button' + (isActive ? ' main-menu-button-active' : '')
+          }
         >
           <InvertColorsOutlinedIcon fontSize='inherit' />
         </NavLink>
