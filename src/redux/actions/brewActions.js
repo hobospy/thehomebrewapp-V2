@@ -83,3 +83,7 @@ export function deleteBrew(brew) {
     return brewApi.deleteBrew(brew.id);
   };
 }
+
+export function generateBrewImagePath(imageIds) {
+  return brewApi.generateBrewImagePath(imageIds);
+}

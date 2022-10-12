@@ -29,3 +29,13 @@ export function deleteBrew(brewId) {
     .then(handleResponse)
     .catch(handleError);
 }
+
+export function generateBrewImagePath(imageIds) {
+  if (imageIds.length > 0) {
+    const arrayOfImageIds = imageIds.split(',');
+
+    return arrayOfImageIds.map((id) => {
+      return { url: process.env.API_URL + 'Images?ImageName=' + id };
+    });
+  } else return null;
+}
