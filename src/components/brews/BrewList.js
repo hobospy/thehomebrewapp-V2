@@ -31,6 +31,7 @@ function BrewList({ onDeleteClick, brews }) {
                     recipeType={brew.recipeType}
                     rating={brew.rating}
                     brewDate={dateFunctions.getFullDate(brew.brewDate)}
+                    summaryPage={true}
                   />
                 </td>
               </tr>

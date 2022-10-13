@@ -13,12 +13,20 @@ const BrewDetail = ({ brew }) => {
       <table style={{ width: '100%' }}>
         <tbody>
           <tr>
-            <td style={{ borderWidth: '0px', padding: '8px' }} colSpan={2}>
+            <td
+              style={{
+                backgroundColor: '#001a33',
+                borderWidth: '0px',
+                padding: '5px',
+              }}
+              colSpan={2}
+            >
               <BrewHeader
                 name={brew.name}
                 recipeType={brew.recipe.type}
                 rating={brew.rating}
                 brewDate={dateFunctions.getFullDate(brew.brewDate)}
+                summaryPage={false}
               />
             </td>
           </tr>
