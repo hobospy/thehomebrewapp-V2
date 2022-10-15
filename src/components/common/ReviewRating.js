@@ -26,7 +26,6 @@ const StyledRating = withStyles({
 })(Rating);
 
 export default function ReviewRating({ ratingValue, summaryPage }) {
-  console.log(summaryPage);
   return (
     <>
       {summaryPage ? (

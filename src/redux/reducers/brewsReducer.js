@@ -5,8 +5,6 @@ export default function brewsReducer(state = InitialState.brews, action) {
   switch (action.type) {
     case types.CREATE_BREW_SUCCESS:
       return [...state, { ...action.brew }];
-    case types.LOAD_BREW_SUCCESS:
-      return { ...state, brewDetail: action.brew };
     case types.LOAD_BREWS_SUCCESS:
       return action.brews;
     case types.UPDATE_BREW_SUCCESS:

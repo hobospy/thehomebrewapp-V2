@@ -70,7 +70,7 @@ const RecipeDetail = ({ recipe }) => {
                   key={index}
                   label={item.label}
                   narrowMargin={true}
-                  value={item.value}
+                  value={item.value.toString()}
                 />
               );
             })}
@@ -91,8 +91,7 @@ const RecipeDetail = ({ recipe }) => {
               return (
                 <BrewingStep
                   description={step.description}
-                  duration={step.duration}
-                  durationIndicator={step.durationType}
+                  timer={step.timer}
                   key={index}
                   label={'Step ' + index}
                 />

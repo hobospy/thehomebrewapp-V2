@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-function BrewingStep({ description, duration, durationIndicator, label }) {
+function BrewingStep({ description, timer, label }) {
   return (
     <table style={{ width: '100%' }}>
       <thead>
-        <th />
-        <th style={{ width: '50px' }} />
-        <th style={{ width: '25px' }} />
+        <tr>
+          <th />
+          <th style={{ width: '50px' }} />
+          <th style={{ width: '25px' }} />
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -15,8 +17,19 @@ function BrewingStep({ description, duration, durationIndicator, label }) {
         </tr>
         <tr>
           <td>{description}</td>
-          <td style={{ textAlign: 'right' }}>{duration}</td>
-          <td>{durationIndicator}</td>
+          {timer !== null ? (
+            <>
+              <td style={{ textAlign: 'right' }}>
+                {timer.duration.toString()}
+              </td>
+              <td>{timer.type.toString()}</td>
+            </>
+          ) : (
+            <>
+              <td />
+              <td />
+            </>
+          )}
         </tr>
       </tbody>
     </table>
@@ -29,8 +42,7 @@ BrewingStep.defaultProps = {
 
 BrewingStep.propTypes = {
   description: PropTypes.string.isRequired,
-  duration: PropTypes.string,
-  durationIndicator: PropTypes.string.isRequired,
+  timer: PropTypes.object,
   label: PropTypes.string.isRequired,
 };
 

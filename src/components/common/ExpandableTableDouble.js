@@ -24,8 +24,10 @@ export default function ExpandableTableDouble({
   return (
     <table style={{ width: '100%' }}>
       <thead>
-        <th style={{ width: '50%' }} />
-        <th style={{ width: '50%' }} />
+        <tr>
+          <th style={{ width: '50%' }} />
+          <th style={{ width: '50%' }} />
+        </tr>
       </thead>
       <tbody>
         <tr>
