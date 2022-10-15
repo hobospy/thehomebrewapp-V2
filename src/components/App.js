@@ -10,6 +10,7 @@ import PageNotFound from './PageNotFound';
 import ManageRecipePage from './recipes/ManageRecipePage';
 import RecipeDetailPage from './recipes/RecipeDetailPage';
 import RecipesPage from './recipes/RecipesPage';
+import RedirectToRecipes from './recipes/RedirectToRecipes';
 import WaterProfilesPage from './waterProfiles/WaterProfilesPage';
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
     <div className='container-fluid'>
       <Header />
       <Routes>
-        <Route exact path='/' element={<RecipesPage />} />
+        <Route exact path='/' element={<RedirectToRecipes />} />
         <Route path='/brews' element={<BrewsPage />} />
         <Route path='/brews/:id' element={<BrewDetailPage />} />
         <Route path='/recipes' element={<RecipesPage />} />
