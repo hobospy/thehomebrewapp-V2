@@ -1,45 +1,13 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
+import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
+import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
+
+import '../../css/imageCarousel.css';
+
 export default function ImageCarousel({ defaultImageUrl, imageUrls }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const carouselStyles = {
-    height: '100%',
-    position: 'relative',
-    width: '100%',
-  };
-
-  const imagePanelStyle = {
-    maxHeight: '100%',
-    maxWidth: '100%',
-    objectFit: 'scale-down',
-    display: 'block',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-  };
-
-  const navigationBaseStyle = {
-    color: 'pink',
-    cursor: 'pointer',
-    fontSize: '45px',
-    position: 'absolute',
-    top: '50%',
-    transform: 'translate(0, -50%)',
-    zIndex: 1,
-  };
-
-  const buttonMargin = '5px';
-
-  const leftNavigationStyle = {
-    ...navigationBaseStyle,
-    left: buttonMargin,
-  };
-
-  const rightNavigationStyle = {
-    ...navigationBaseStyle,
-    right: buttonMargin,
-  };
 
   const goToPrevious = () => {
     const isFirstImage = currentIndex === 0;
@@ -52,19 +20,28 @@ export default function ImageCarousel({ defaultImageUrl, imageUrls }) {
   };
 
   return (
-    <div style={carouselStyles}>
+    <div className={'carousel-style'}>
       {imageUrls !== null && imageUrls.length > 0 ? (
         <>
-          <div style={leftNavigationStyle} onClick={goToPrevious}>
-            &lt;
+          <div className={'navigation-base-style-left'} onClick={goToPrevious}>
+            <ArrowCircleLeftOutlinedIcon
+              className={'navigation-button'}
+              style={{ fontSize: 40 }}
+            />
           </div>
-          <img style={imagePanelStyle} src={imageUrls[currentIndex].url} />
-          <div style={rightNavigationStyle} onClick={goToNext}>
-            &gt;
+          <img
+            className={'image-panel-style'}
+            src={imageUrls[currentIndex].url}
+          />
+          <div className={'navigation-base-style-right'} onClick={goToNext}>
+            <ArrowCircleRightOutlinedIcon
+              className={'navigation-button'}
+              style={{ fontSize: 40 }}
+            />
           </div>
         </>
       ) : (
-        <img style={imagePanelStyle} src={defaultImageUrl} />
+        <img className={'image-panel-style'} src={defaultImageUrl} />
       )}
     </div>
   );

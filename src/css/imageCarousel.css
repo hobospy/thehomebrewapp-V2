@@ -1,0 +1,38 @@
+@import './themes.css';
+
+.carousel-style {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.image-panel-style {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: scale-down;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navigation-base-style-left,
+.navigation-base-style-right {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  z-index: 1;
+}
+
+.navigation-base-style-right {
+  right: 0;
+}
+
+.navigation-button {
+  color: var(--highlightAccent);
+  font-size: 32px;
+}
+
+.navigation-button:hover {
+  color: var(--primary);
+}
