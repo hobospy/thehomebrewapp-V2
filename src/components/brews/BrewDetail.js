@@ -34,7 +34,8 @@ const BrewDetail = ({ brew }) => {
             <td
               style={{
                 borderWidth: '0px',
-                padding: '8px',
+                paddingBottom: '8px',
+                paddingTop: '8px',
               }}
               rowSpan='4'
             >
@@ -62,7 +63,8 @@ const BrewDetail = ({ brew }) => {
             <td
               style={{
                 borderWidth: '0px',
-                padding: '8px',
+                paddingBottom: '8px',
+                paddingTop: '8px',
                 verticalAlign: 'top',
               }}
             >
@@ -83,8 +85,6 @@ const BrewDetail = ({ brew }) => {
             <td
               style={{
                 borderWidth: '0px',
-                paddingLeft: '8px',
-                paddingRight: '8px',
                 verticalAlign: 'top',
               }}
             >
