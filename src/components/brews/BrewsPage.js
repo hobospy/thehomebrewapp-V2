@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import AddIcon from '@mui/icons-material/Add';
+
 import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -46,13 +48,12 @@ class BrewsPage extends React.Component {
       <>
         {this.state.redirectToAddBrewPage && <Navigate to='/brew' />}
         <div>
-          {/* style={{ backgroundColor: 'blue', overflow: 'hidden' }}> */}
           <h2 className='header-text'>Brews</h2>
           <button
-            className='btn btn-primary header-button'
+            className='btn btn-primary header-button-standard'
             onClick={() => this.setState({ redirectToAddBrewPage: true })}
           >
-            Add Brew
+            <AddIcon />
           </button>
         </div>
         {this.props.isLoading ? (

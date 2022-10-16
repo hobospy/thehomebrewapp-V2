@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 import BrewDetail from './BrewDetail';
 import RecipeDetail from '../recipes/RecipeDetail';
 import Spinner from '../common/Spinner';
@@ -28,13 +31,19 @@ export const BrewDetailPage = () => {
       ) : (
         <>
           <div>
-            {/* style={{ backgroundColor: 'blue', overflow: 'hidden' }}> */}
             <h2 className='header-text'>Brew</h2>
             <button
-              className='btn btn-primary header-button'
+              className='btn btn-primary header-button-danger'
               onClick={() => this.setState({ redirectToAddBrewPage: true })}
             >
-              Edit Brew
+              <DeleteIcon />
+            </button>
+            <button
+              className='btn btn-primary header-button-standard'
+              onClick={() => this.setState({ redirectToAddBrewPage: true })}
+              style={{ marginRight: '5px' }}
+            >
+              <EditOutlinedIcon />
             </button>
           </div>
           <BrewDetail brew={brew} />

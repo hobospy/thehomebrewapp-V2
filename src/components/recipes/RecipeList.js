@@ -2,11 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-
 import './RecipeList.css';
 
-function RecipeList({ onDeleteClick, recipes }) {
+function RecipeList({ recipes }) {
   const navigate = useNavigate();
 
   const handleRowClick = (id) => {
@@ -25,24 +23,14 @@ function RecipeList({ onDeleteClick, recipes }) {
             <tbody className='tableHighlightRowLink'>
               <tr>
                 <td style={{ borderWidth: '0px' }}>{recipe.name}</td>
-                <td style={{ borderWidth: '0px', width: '300px' }}>
-                  {recipe.type}
-                </td>
                 <td
                   style={{
                     borderWidth: '0px',
-                    width: '125px',
-                    verticalAlign: 'middle',
+                    width: '300px',
                     textAlign: 'right',
                   }}
-                  rowSpan={2}
                 >
-                  <button
-                    className='danger-button'
-                    onClick={(event) => onDeleteClick(event, recipe)}
-                  >
-                    <DeleteOutlineIcon className='danger-button-icon' />
-                  </button>
+                  {recipe.type}
                 </td>
               </tr>
               <tr>
@@ -59,7 +47,6 @@ function RecipeList({ onDeleteClick, recipes }) {
 }
 
 RecipeList.propTypes = {
-  onDeleteClick: PropTypes.func.isRequired,
   recipes: PropTypes.array.isRequired,
 };
 

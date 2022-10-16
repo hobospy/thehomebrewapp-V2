@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-
 import './WaterProfileList.css';
 
-function WaterProfileList({ history, onDeleteClick, waterProfiles }) {
+function WaterProfileList({ history, waterProfiles }) {
   const handleRowClick = (id) => {
     history.push('/waterProfile/' + id);
   };
@@ -25,22 +23,6 @@ function WaterProfileList({ history, onDeleteClick, waterProfiles }) {
                 <td style={{ borderWidth: '0px', width: '300px' }}>
                   {waterProfile.type}
                 </td>
-                <td
-                  style={{
-                    borderWidth: '0px',
-                    width: '125px',
-                    verticalAlign: 'middle',
-                    textAlign: 'right',
-                  }}
-                  rowSpan={2}
-                >
-                  <button
-                    className='danger-button'
-                    onClick={(event) => onDeleteClick(event, waterProfile)}
-                  >
-                    <DeleteOutlineIcon className='danger-button-icon' />
-                  </button>
-                </td>
               </tr>
               <tr>
                 <td style={{ borderWidth: '0px' }} colSpan={2}>
@@ -57,7 +39,6 @@ function WaterProfileList({ history, onDeleteClick, waterProfiles }) {
 
 WaterProfileList.propTypes = {
   history: PropTypes.object.isRequired,
-  onDeleteClick: PropTypes.func.isRequired,
   waterProfiles: PropTypes.array.isRequired,
 };
 

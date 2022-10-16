@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import AddIcon from '@mui/icons-material/Add';
+
 import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { bindActionCreators } from 'redux';
 
 import RecipeList from './RecipeList';
@@ -32,22 +33,6 @@ class RecipesPage extends React.Component {
     }
   }
 
-  handleDeleteRecipe = async (event, recipe) => {
-    event.stopPropagation();
-    toast.success('The ' + recipe.name + ' recipe was deleted');
-    try {
-      await this.props.actions.deleteRecipe(recipe);
-    } catch (error) {
-      toast.error(
-        <div>
-          Deletion of {recipe.name} failed with error message:
-          <br /> {error.message}
-        </div>,
-        { autoClose: false }
-      );
-    }
-  };
-
   render() {
     return (
       <>
@@ -55,19 +40,16 @@ class RecipesPage extends React.Component {
         <>
           <h2 className='header-text'>Recipes</h2>
           <button
-            className='btn btn-primary header-button'
+            className='btn btn-primary header-button-standard'
             onClick={() => this.setState({ redirectToAddRecipePage: true })}
           >
-            Add Recipe
+            <AddIcon />
           </button>
         </>
         {this.props.isLoading ? (
           <Spinner />
         ) : (
-          <RecipeList
-            onDeleteClick={this.handleDeleteRecipe}
-            recipes={this.props.recipes}
-          />
+          <RecipeList recipes={this.props.recipes} />
         )}
       </>
     );

@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import AddIcon from '@mui/icons-material/Add';
+
 import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -50,12 +52,12 @@ class WaterProfilesPage extends React.Component {
         <>
           <h2 className='header-text'>Water Profiles</h2>
           <button
-            className='btn btn-primary header-button'
+            className='btn btn-primary header-button-standard'
             onClick={() =>
               this.setState({ redirectToAddWaterProfilePage: true })
             }
           >
-            Add Water Profile
+            <AddIcon />
           </button>
         </>
         {this.props.isLoading ? (
@@ -63,7 +65,6 @@ class WaterProfilesPage extends React.Component {
         ) : (
           <WaterProfileList
             history={this.props.history}
-            onDeleteClick={this.handleDeleteWaterProfile}
             waterProfiles={this.props.waterProfiles}
           />
         )}

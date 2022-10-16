@@ -7,38 +7,32 @@ nav {
   padding: 20px 0 20px 0;
 }
 
-.danger-button {
-  background-color: transparent;
-  border-bottom-style: solid;
+.header-button-standard,
+.header-button-danger {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  border-width: 3px;
+  float: right;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.header-button-standard:hover {
+  background-color: var(--highlightAccent);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.header-button-danger:hover {
+  background-color: white;
   border-color: red;
-  border-radius: 5px;
-  border-right-style: solid;
   color: red;
-}
-
-.danger-button:hover {
-  background-color: red !important;
-  border-color: red;
-  color: white;
-}
-
-.danger-button-icon {
-  font-size: 35px !important;
-}
-
-.danger-button-icon:hover {
-  background-color: red !important;
 }
 
 .header-text {
   display: inline;
   float: left;
   margin-bottom: 0px;
-}
-.header-button {
-  float: right;
-  margin-bottom: 8px;
-  margin-top: 8px;
 }
 
 .table {
