@@ -49,6 +49,7 @@ function WaterProfileAdditions({ additions }) {
               >
                 {additionRow.length > 0 ? (
                   <TextDisplay
+                    displayTooltip={true}
                     label={additionRow[0].name}
                     narrowMargin={true}
                     value={
@@ -77,6 +78,7 @@ function WaterProfileAdditions({ additions }) {
               >
                 {additionRow.length > 1 ? (
                   <TextDisplay
+                    displayTooltip={true}
                     label={additionRow[1].name}
                     narrowMargin={true}
                     value={
@@ -105,6 +107,7 @@ function WaterProfileAdditions({ additions }) {
               >
                 {additionRow.length > 2 ? (
                   <TextDisplay
+                    displayTooltip={true}
                     label={additionRow[2].name}
                     narrowMargin={true}
                     value={
@@ -124,6 +127,7 @@ function WaterProfileAdditions({ additions }) {
               >
                 {additionRow.length > 3 ? (
                   <TextDisplay
+                    displayTooltip={true}
                     label={additionRow[3].name}
                     narrowMargin={true}
                     value={

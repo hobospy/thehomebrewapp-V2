@@ -12,7 +12,12 @@ const StyledTooltip = withStyles({
   },
 })(Tooltip);
 
-export default function TextDisplay({ label, narrowMargin, value }) {
+export default function TextDisplay({
+  displayTooltip,
+  label,
+  narrowMargin,
+  value,
+}) {
   const defaultMargin = narrowMargin ? -4 : 2;
   const labelStyle = {
     color: 'darkgray',
@@ -29,14 +34,18 @@ export default function TextDisplay({ label, narrowMargin, value }) {
   };
   return (
     <>
-      <StyledTooltip
-        title={label}
-        enterDelay={1000}
-        leaveDelay={200}
-        placement='top-start'
-      >
+      {displayTooltip !== null && displayTooltip ? (
+        <StyledTooltip
+          title={label}
+          enterDelay={1000}
+          leaveDelay={200}
+          placement='top-start'
+        >
+          <div style={labelStyle}>{label}</div>
+        </StyledTooltip>
+      ) : (
         <div style={labelStyle}>{label}</div>
-      </StyledTooltip>
+      )}
       <label style={valueStyle}>{value}</label>
     </>
   );
@@ -47,6 +56,7 @@ TextDisplay.defaultProps = {
 };
 
 TextDisplay.propTypes = {
+  displayTooltip: PropTypes.bool,
   label: PropTypes.string.isRequired,
   narrowMargin: PropTypes.bool,
   value: PropTypes.string.isRequired,
