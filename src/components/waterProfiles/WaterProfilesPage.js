@@ -63,10 +63,7 @@ class WaterProfilesPage extends React.Component {
         {this.props.isLoading ? (
           <Spinner />
         ) : (
-          <WaterProfileList
-            history={this.props.history}
-            waterProfiles={this.props.waterProfiles}
-          />
+          <WaterProfileList waterProfiles={this.props.waterProfiles} />
         )}
       </>
     );
@@ -75,7 +72,6 @@ class WaterProfilesPage extends React.Component {
 
 WaterProfilesPage.propTypes = {
   actions: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   waterProfiles: PropTypes.array.isRequired,
 };

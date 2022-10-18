@@ -130,6 +130,11 @@ nav {
   text-align: right;
 }
 
+.water-profile-additions-table-border {
+  border-color: var(--neutral2);
+  border-style: solid;
+}
+
 /* https://medium.com/@harishv6665_49536/theming-with-react-js-or-any-in-minutes-with-css-variables-11d4ebecdb41 */
 html.theme-transition,
 html.theme-transition *,

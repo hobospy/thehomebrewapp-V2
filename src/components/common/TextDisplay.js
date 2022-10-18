@@ -1,12 +1,26 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import Tooltip from '@mui/material/Tooltip';
+import { withStyles } from '@material-ui/core/styles';
+
+const StyledTooltip = withStyles({
+  tooltip: {
+    backgroundColor: '#001a33 !important',
+    fontSize: '12px !important',
+    marginBottom: '-5px !important',
+  },
+})(Tooltip);
+
 export default function TextDisplay({ label, narrowMargin, value }) {
-  const defaultMargin = narrowMargin ? -5 : 2;
+  const defaultMargin = narrowMargin ? -4 : 2;
   const labelStyle = {
     color: 'darkgray',
+    cursor: 'context-menu',
     fontSize: 13,
     marginBottom: defaultMargin,
+    overflowX: 'hidden',
+    whiteSpace: 'nowrap',
   };
   const valueStyle = {
     lineHeight: 1.3,
@@ -15,7 +29,14 @@ export default function TextDisplay({ label, narrowMargin, value }) {
   };
   return (
     <>
-      <div style={labelStyle}>{label}</div>
+      <StyledTooltip
+        title={label}
+        enterDelay={1000}
+        leaveDelay={200}
+        placement='top-start'
+      >
+        <div style={labelStyle}>{label}</div>
+      </StyledTooltip>
       <label style={valueStyle}>{value}</label>
     </>
   );

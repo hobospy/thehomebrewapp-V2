@@ -1,31 +1,24 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import WaterProfileAdditions from './WaterProfileAdditions';
 
 import './WaterProfileList.css';
 
-function WaterProfileList({ history, waterProfiles }) {
-  const handleRowClick = (id) => {
-    history.push('/waterProfile/' + id);
-  };
-
+function WaterProfileList({ waterProfiles }) {
   return (
     <div>
       {waterProfiles.map((waterProfile) => {
         return (
-          <table
-            className='table'
-            key={waterProfile.id}
-            onClick={() => handleRowClick(waterProfile.id)}
-          >
+          <table className='table' key={waterProfile.id}>
             <tbody className='tableHighlightRowLink'>
               <tr>
                 <td style={{ borderWidth: '0px' }}>{waterProfile.name}</td>
-                <td style={{ borderWidth: '0px', width: '300px' }}>
-                  {waterProfile.type}
+                <td style={{ borderWidth: '0px' }} rowSpan='2'>
+                  <WaterProfileAdditions additions={waterProfile.additions} />
                 </td>
               </tr>
               <tr>
-                <td style={{ borderWidth: '0px' }} colSpan={2}>
+                <td style={{ borderWidth: '0px' }}>
                   {waterProfile.description}
                 </td>
               </tr>
@@ -38,7 +31,6 @@ function WaterProfileList({ history, waterProfiles }) {
 }
 
 WaterProfileList.propTypes = {
-  history: PropTypes.object.isRequired,
   waterProfiles: PropTypes.array.isRequired,
 };
 
