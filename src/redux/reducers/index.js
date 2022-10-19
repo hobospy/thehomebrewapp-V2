@@ -5,7 +5,8 @@ import brewDetail from './brewReducer';
 import brews from './brewsReducer';
 import recipeDetail from './recipeReducer';
 import recipes from './recipesReducer';
-import waterProfiles from './waterProfileReducer';
+import waterProfileDetail from './waterProfileReducer';
+import waterProfiles from './waterProfilesReducer';
 
 const rootReducer = combineReducers({
   apiCallsInProgress,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   brews,
   recipeDetail,
   recipes,
+  waterProfileDetail,
   waterProfiles,
 });
 

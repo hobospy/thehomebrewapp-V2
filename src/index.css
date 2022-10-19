@@ -150,6 +150,43 @@ nav {
 .water-profile-additions-table-cell-bordered {
   border-right-width: 1px;
 }
+.waterProfileDetailContainer {
+  display: grid;
+  grid-template-columns: 50% 1fr 35px;
+  grid-template-rows: 35px auto auto auto auto;
+  width: 100%;
+}
+
+.waterProfileDetailContainer > .header {
+  background-color: #001a33;
+  color: #fff;
+  font-size: 18px;
+}
+
+.waterProfileDetailContainer > .title {
+  grid-column: 1 / span 3;
+  grid-row: 1;
+  padding: 5px;
+}
+
+.waterProfileDetailContainer > .description {
+  border-bottom: solid 1px #001a33;
+  grid-column: 1 / span 3;
+  grid-row: 2;
+  padding-bottom: 5px;
+}
+
+.waterProfileDetailContainer > .additionsTitle {
+  grid-column: 1 / span 3;
+  grid-row: 3;
+  padding: 5px;
+}
+
+.waterProfileDetailContainer > .additions {
+  grid-column: 1 / span 3;
+  grid-row: 4;
+  padding: 5px;
+}
 
 /* https://medium.com/@harishv6665_49536/theming-with-react-js-or-any-in-minutes-with-css-variables-11d4ebecdb41 */
 html.theme-transition,

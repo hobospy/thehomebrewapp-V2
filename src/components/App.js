@@ -11,6 +11,7 @@ import ManageRecipePage from './recipes/ManageRecipePage';
 import RecipeDetailPage from './recipes/RecipeDetailPage';
 import RecipesPage from './recipes/RecipesPage';
 import RedirectToRecipes from './recipes/RedirectToRecipes';
+import WaterProfileDetailPage from './waterProfiles/WaterProfileDetailPage';
 import WaterProfilesPage from './waterProfiles/WaterProfilesPage';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path='/recipes/:id' element={<RecipeDetailPage />} />
         <Route path='/recipe' element={<ManageRecipePage />} />
         <Route path='/waterProfiles' element={<WaterProfilesPage />} />
+        <Route path='/waterProfiles/:id' element={<WaterProfileDetailPage />} />
         <Route element={<PageNotFound />} />
       </Routes>
       <ToastContainer autoClose={3000} hideProgressBar />

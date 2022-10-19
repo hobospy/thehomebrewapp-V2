@@ -4,5 +4,6 @@ export default {
   brews: [],
   recipeDetail: null,
   recipes: [],
+  waterProfileDetail: null,
   waterProfiles: [],
 };

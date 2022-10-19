@@ -2,6 +2,12 @@ import { handleError, handleResponse } from './apiUtils';
 
 const baseUrl = process.env.API_URL + 'waterprofiles/';
 
+export function getWaterProfile(waterProfileId) {
+  return fetch(baseUrl + waterProfileId + '?includeAdditions=true')
+    .then(handleResponse)
+    .catch(handleError);
+}
+
 export function getWaterProfiles() {
   return fetch(baseUrl).then(handleResponse).catch(handleError);
 }
