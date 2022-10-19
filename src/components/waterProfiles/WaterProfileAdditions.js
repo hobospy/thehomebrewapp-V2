@@ -24,27 +24,17 @@ function WaterProfileAdditions({ additions }) {
           return (
             <tr
               key={index}
-              className={'water-profile-additions-table-border'}
-              style={
+              className={
                 splitAdditions.length - (index + 1) > 0
-                  ? { borderBottomWidth: '1px' }
-                  : { borderBottomWidth: '0px' }
+                  ? 'water-profile-additions-table-bordered'
+                  : 'water-profile-additions-table'
               }
             >
               <td
-                style={
+                className={
                   splitAdditions.length > 1 || additionRow.length > 1
-                    ? {
-                        borderRightWidth: '1px',
-                        display: 'inline-block',
-                        padding: '3px 3px 10px 3px',
-                        width: '25%',
-                      }
-                    : {
-                        display: 'inline-block',
-                        padding: '3px 3px 10px 3px',
-                        width: '25%',
-                      }
+                    ? 'water-profile-additions-table-cell-bordered'
+                    : 'water-profile-additions-table-cell'
                 }
               >
                 {additionRow.length > 0 ? (
@@ -61,19 +51,10 @@ function WaterProfileAdditions({ additions }) {
                 )}
               </td>
               <td
-                style={
+                className={
                   splitAdditions.length > 1 || additionRow.length > 2
-                    ? {
-                        borderRightWidth: '1px',
-                        display: 'inline-block',
-                        padding: '3px 3px 10px 3px',
-                        width: '25%',
-                      }
-                    : {
-                        display: 'inline-block',
-                        padding: '3px 3px 10px 3px',
-                        width: '25%',
-                      }
+                    ? 'water-profile-additions-table-cell-bordered'
+                    : 'water-profile-additions-table-cell'
                 }
               >
                 {additionRow.length > 1 ? (
@@ -90,19 +71,10 @@ function WaterProfileAdditions({ additions }) {
                 )}
               </td>
               <td
-                style={
+                className={
                   splitAdditions.length > 1 || additionRow.length > 3
-                    ? {
-                        borderRightWidth: '1px',
-                        display: 'inline-block',
-                        padding: '3px 3px 10px 3px',
-                        width: '25%',
-                      }
-                    : {
-                        display: 'inline-block',
-                        padding: '3px 3px 10px 3px',
-                        width: '25%',
-                      }
+                    ? 'water-profile-additions-table-cell-bordered'
+                    : 'water-profile-additions-table-cell'
                 }
               >
                 {additionRow.length > 2 ? (
@@ -118,13 +90,7 @@ function WaterProfileAdditions({ additions }) {
                   <></>
                 )}
               </td>
-              <td
-                style={{
-                  display: 'inline-block',
-                  padding: '3px 3px 10px 3px',
-                  width: '25%',
-                }}
-              >
+              <td className='water-profile-additions-table-cell'>
                 {additionRow.length > 3 ? (
                   <TextDisplay
                     displayTooltip={true}
